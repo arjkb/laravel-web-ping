@@ -15,13 +15,11 @@ class SiteSeeder extends Seeder
         DB::table('sites')->insert([
             [
                 'url' => 'http://www.example.com',
-                'online' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'url' => 'http://www.example.org',
-                'online' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
