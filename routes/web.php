@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'SiteController@index');
+Route::post('/site', 'SiteController@store');
