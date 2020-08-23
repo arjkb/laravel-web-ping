@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('container')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+</nav>
+
 <h1>Web Ping</h1>
 
 <div>

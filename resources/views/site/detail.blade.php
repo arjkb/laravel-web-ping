@@ -1,6 +1,13 @@
 @extends('layouts.master')
 
 @section('container')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="/"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Downtimes</li>
+    </ol>
+</nav>
+
 <h1>Detail Page</h1>
 <h3>{{ $site->url }}</h3>
 
