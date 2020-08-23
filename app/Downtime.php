@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Downtime extends Model
 {
+    public $timestamps = false;
+
     public function site() {
         return $this->belongsTo(Site::class);
     }
