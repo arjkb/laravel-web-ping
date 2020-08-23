@@ -8,6 +8,10 @@ class Downtime extends Model
 {
     public $timestamps = false;
 
+    protected $fillable = [
+        'ended_at',
+    ];
+
     public function site() {
         return $this->belongsTo(Site::class);
     }
