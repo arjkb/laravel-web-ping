@@ -30,7 +30,10 @@ class Kernel extends ConsoleKernel
 
         foreach (Site::all() as $site) {
             info('about to schedule', ['id' => optional($site)->id]);
-            $schedule->job(new CheckSite($site))->everyMinute();
+            $schedule->job(new CheckSite($site))
+                        ->weekdays()
+                        ->everyFifteenMinutes()
+                        ->between('8:30', '19:00');
         }
     }
 
