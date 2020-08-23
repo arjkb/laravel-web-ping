@@ -8,6 +8,11 @@ class Downtime extends Model
 {
     public $timestamps = false;
 
+    protected $casts = [
+        'started_at' => 'datetime',
+        'ended_at' => 'datetime',
+    ];
+
     protected $fillable = [
         'ended_at',
     ];
