@@ -19,7 +19,7 @@
                 <td>{{ $site->id }}</td>
                 <td>{{ $site->status_word }}</td>
                 <td><a href="{{ $site->url }}">{{ $site->url }}</a></td>
-                <td>{{ $site->updated_at }}</td>
+                <td>{{ $site->updated_at->format('D, M d, Y \| G:i:s') }}</td>
             </tr>
             @endforeach
         </tbody>
