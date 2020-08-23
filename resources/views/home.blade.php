@@ -10,7 +10,7 @@
                 <th>ID</th>
                 <th>Status</th>
                 <th>URL</th>
-                <th>Last Updated At</th>
+                <th class="text-right">Last Updated At</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                 <td>{{ $site->id }}</td>
                 <td>{{ $site->status_word }}</td>
                 <td><a href="{{ $site->url }}">{{ $site->url }}</a></td>
-                <td>{{ $site->updated_at->format('D, M d, Y \| G:i:s') }}</td>
+                <td class="text-right">{{ $site->updated_at->format('D, M d, Y \| G:i:s') }}</td>
             </tr>
             @endforeach
         </tbody>
