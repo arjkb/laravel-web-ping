@@ -35,7 +35,11 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $site = new Site;
+        $site->url = $request->url;
+        $site->save();
+
+        return back();
     }
 
     /**
