@@ -19,6 +19,7 @@
                 <th>Status</th>
                 <th>URL</th>
                 <th class="text-right">Last Updated At</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,13 @@
                 <td>{{ $site->status_word }}</td>
                 <td><a href="{{ $site->url }}">{{ $site->url }}</a></td>
                 <td class="text-right">{{ optional($site->updated_at)->format('D, M d, Y \| G:i:s') }}</td>
+                <td>
+                    <form action="/site/{{ $site->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-outline-danger">DELETE</button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>
