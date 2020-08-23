@@ -19,5 +19,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'SiteController@index');
+Route::get('/site/{site}', 'SiteController@show');
 Route::post('/site', 'SiteController@store');
 Route::delete('/site/{site}', 'SiteController@destroy');

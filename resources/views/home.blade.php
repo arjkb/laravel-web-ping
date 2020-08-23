@@ -27,7 +27,10 @@
             <tr class="text-{{ $site->css_color }}">
                 <td>{{ $site->id }}</td>
                 <td>{{ $site->status_word }}</td>
-                <td><a href="{{ $site->url }}">{{ $site->url }}</a></td>
+                <td>
+                    <a href="{{ $site->url }}">{{ $site->url }}</a>
+                    <a href="/site/{{ $site->id }}">(Show details)</a>
+                </td>
                 <td class="text-right">{{ optional($site->updated_at)->format('D, M d, Y \| G:i:s') }}</td>
                 <td>
                     <form action="/site/{{ $site->id }}" method="post">
