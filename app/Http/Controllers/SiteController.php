@@ -51,7 +51,7 @@ class SiteController extends Controller
     public function show(Site $site)
     {
         //
-        return view('site.detail', ['site' => $site]);
+        return view('site.detail', ['site' => $site->load('downtimes')]);
     }
 
     /**
