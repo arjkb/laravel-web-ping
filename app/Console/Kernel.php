@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         foreach (Site::all() as $site) {
-            info('about to schedule', ['site' => $site]);
+            info('about to schedule', ['id' => optional($site)->id]);
             $schedule->job(new CheckSite($site))->everyMinute();
         }
     }

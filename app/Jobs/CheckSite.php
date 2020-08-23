@@ -34,7 +34,10 @@ class CheckSite implements ShouldQueue
      */
     public function handle()
     {
-        info('running Checksite', ['site' => $this->site]);
+        info('Checksite: handle()', [
+            'id' => optional($this->site)->id,
+            'url' => optional($this->site)->url
+        ]);
 
         try {
             $response = Http::get($this->site->url);
@@ -42,7 +45,7 @@ class CheckSite implements ShouldQueue
             $this->site->online = $response->successful();
 
         } catch (Exception $ex) {
-            info('checkSite EXCEPTION', ['ex' => $ex->getMessage()]);
+            info('Checksite: EXCEPTION', ['ex' => $ex->getMessage()]);
 
             $this->site->online = false;
         }
