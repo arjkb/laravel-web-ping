@@ -14,6 +14,7 @@ class Downtime extends Model
     ];
 
     protected $fillable = [
+        'started_at',
         'ended_at',
     ];
 
