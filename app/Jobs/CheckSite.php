@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Repositories\SiteRepository;
 use App\Site;
 use Exception;
 use Illuminate\Bus\Queueable;
@@ -16,6 +17,7 @@ class CheckSite implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $site;
+    protected $siteRepo;
 
     /**
      * Create a new job instance.
@@ -25,6 +27,7 @@ class CheckSite implements ShouldQueue
     public function __construct(Site $site)
     {
         $this->site = $site;
+        $this->siteRepo = new SiteRepository;
     }
 
     /**
@@ -39,17 +42,6 @@ class CheckSite implements ShouldQueue
             'url' => optional($this->site)->url
         ]);
 
-        try {
-            $response = Http::get($this->site->url);
-
-            $this->site->online = $response->successful();
-
-        } catch (Exception $ex) {
-            info('Checksite: EXCEPTION', ['ex' => $ex->getMessage()]);
-
-            $this->site->online = false;
-        }
-
-        $this->site->save();
+        $this->siteRepo->checkWebsite($this->site);
     }
 }
