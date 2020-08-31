@@ -14,7 +14,7 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return view('home', ['sites' => Site::all()]);
+        return view('home', ['sites' => Site::withCount('downtimes')->get()]);
     }
 
     /**

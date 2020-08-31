@@ -24,6 +24,7 @@
                 <th>ID</th>
                 <th>Status</th>
                 <th>URL</th>
+                <th class="text-right">Total Downtimes</th>
                 <th class="text-right">Last Updated At</th>
                 <th>Action</th>
             </tr>
@@ -37,6 +38,7 @@
                     <a href="{{ $site->url }}">{{ $site->url }}</a>
                     <a href="/site/{{ $site->id }}">(Show details)</a>
                 </td>
+                <td class="text-right">{{ $site->downtimes_count }}</td>
                 <td class="text-right">{{ optional($site->updated_at)->format('D, M d, Y \| G:i:s') }}</td>
                 <td>
                     <form action="/site/{{ $site->id }}" method="post">
