@@ -37,8 +37,11 @@ class SiteObserver
 
         } else {
             // site went down; add entry in downtime
-            $site->downtimes()->create();
-
+            if ($site->downtimes()->whereNull('ended_at')->doesntExist()) {
+                $site->downtimes()->create([
+                    'started_at' => now(),
+                ]);
+            }
         }
     }
 
