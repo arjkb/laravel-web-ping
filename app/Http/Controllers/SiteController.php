@@ -35,8 +35,12 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = (object) $request->validate([
+            'url' => 'required|url',
+        ]);
+
         $site = new Site;
-        $site->url = $request->url;
+        $site->url = $validatedData->url;
         $site->save();
 
         return back();

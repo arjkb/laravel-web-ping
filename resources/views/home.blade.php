@@ -12,10 +12,19 @@
 <div>
     <form method="POST" action="/site" class="form-inline">
         @csrf
-        <input type="text" name="url" class="form-control mb-2 mr-sm-2" placeholder="Enter URL here">
+        <input type="url" name="url" class="form-control mb-2 mr-sm-2" placeholder="Enter URL here" value="{{ old('url') }}" required>
         <button type="submit" class="btn btn-outline-primary mb-2">Add</button>
     </form>
 </div>
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
 @if(count($sites) > 0)
     <table class="table">
